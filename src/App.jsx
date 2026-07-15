@@ -3,15 +3,21 @@ import './App.css'
 
 function Pelicula({titulo}){
 
+  const [favorito, setFavorito] = useState(false)
+
   return(
     <div style={{
-      border: '1px solid gray',
+      border: favorito ? '2px solid yellow' : '1px solid gray',
       padding: '10px',
       margin: '10px',
       borderRadius: '25px',
+      textDecoration: favorito ? 'line-throught' : 'none',
+      opacity: favorito ? 2 : 0.5,
+      color: favorito ? 'yellow' : 'grey'
       }}
+      onClick={()=> setFavorito( !favorito )}  
       >
-      <p>{titulo}</p>
+      <p>{titulo}{favorito ? "⭐" : ""}</p>
     </div>
   )
 }
