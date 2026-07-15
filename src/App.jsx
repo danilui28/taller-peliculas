@@ -24,13 +24,16 @@ function Pelicula({titulo}){
 
 function App() {
 
+  const peliculas = [ 'Spiderman', 'Backrooms', 'Matrix', 'Rápidos y furiosos']
+
   return (
     <div>
       <h1>Mis peliculas favoritas</h1>
-      <Pelicula titulo="Spiderman"></Pelicula>
-      <Pelicula titulo="Backrooms"></Pelicula>
-      <Pelicula titulo="Matrix"></Pelicula>
-      <Pelicula titulo="Rápidos y furiosos"></Pelicula>
+
+      {peliculas.map((pelicula, indice)=>{
+        return <Pelicula key={indice} titulo={pelicula} />
+      })}
+
     </div>
   )
 }
