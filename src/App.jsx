@@ -24,7 +24,18 @@ function Pelicula({titulo}){
 
 function App() {
 
-  const peliculas = [ 'Spiderman', 'Backrooms', 'Matrix', 'Rápidos y furiosos']
+  const [peliculas, setPeliculas] = useState([ 'Spiderman', 'Backrooms', 'Matrix', 'Rápidos y furiosos']);
+  const [nuevaPelicula, setNuevaPelicula] = useState('');
+
+  function agregarPelicula(){
+    if(nuevaPelicula.trim()=== ''){
+      return;
+    }else{
+      setPeliculas([...peliculas, nuevaPelicula]);
+
+      nuevaPelicula('');
+    }
+  }
 
   return (
     <div>
@@ -33,6 +44,18 @@ function App() {
       {peliculas.map((pelicula, indice)=>{
         return <Pelicula key={indice} titulo={pelicula} />
       })}
+
+      <div>
+        <input 
+          text='text'
+          value={nuevaPelicula}
+          onChange={(e)=> setNuevaPelicula(e.target.value) }
+          placeholder='Nueva Pelicula...'
+          style={{flex: 1, padding: '8px', marginTop: '10px'}}
+        />
+      </div>
+
+      <button onClick={agregarPelicula}>Agregar</button>
 
     </div>
   )
