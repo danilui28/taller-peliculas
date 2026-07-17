@@ -11,8 +11,8 @@ function Pelicula({titulo}){
       padding: '10px',
       margin: '10px',
       borderRadius: '25px',
-      textDecoration: favorito ? 'line-throught' : 'none',
-      opacity: favorito ? 2 : 0.5,
+      textDecoration: favorito ? 'line-through' : 'none',
+      opacity: favorito ? 1 : 0.5,
       color: favorito ? 'yellow' : 'grey'
       }}
       onClick={()=> setFavorito( !favorito )}  
@@ -33,7 +33,7 @@ function App() {
     }else{
       setPeliculas([...peliculas, nuevaPelicula]);
 
-      nuevaPelicula('');
+      setNuevaPelicula('');
     }
   }
 
@@ -47,7 +47,7 @@ function App() {
 
       <div>
         <input 
-          text='text'
+          type='text'
           value={nuevaPelicula}
           onChange={(e)=> setNuevaPelicula(e.target.value) }
           placeholder='Nueva Pelicula...'
